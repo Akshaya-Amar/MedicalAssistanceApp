@@ -1,0 +1,152 @@
+{
+  "dashboard": {
+    "card": {
+      "days": [
+        {
+          "day": "Sun",
+          "date": 15
+        },
+        {
+          "day": "Mon",
+          "date": 16
+        },
+        {
+          "day": "Tue",
+          "date": 17
+        },
+        {
+          "day": "Wed",
+          "date": 18,
+          "isSelected": true
+        },
+        {
+          "day": "Thu",
+          "date": 19
+        },
+        {
+          "day": "Fri",
+          "date": 20
+        },
+        {
+          "day": "Sat",
+          "date": 21
+        }
+      ],
+      "specialists": [
+        {
+          "id": 1,
+          "name": "Ralph Edward",
+          "speciality": "Dentist Specialist",
+          "rating": 4.8,
+          "profileImage": "https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1)-p-2000.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Olivia Hayes  ",
+          "speciality": "Surgery Specialist",
+          "rating": 4.6,
+          "profileImage": "https://static.vecteezy.com/system/resources/previews/023/570/077/large_2x/portrait-of-girl-doctor-illustration-ai-generative-free-photo.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Annette Black",
+          "speciality": "Urology Specialist",
+          "rating": 4.5,
+          "profileImage": "https://img.freepik.com/premium-photo/smiling-doctor-his-practice_13339-193671.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Emily Davis       ",
+          "speciality": "Neurology Specialist",
+          "rating": 4.8,
+          "profileImage": "https://static.vecteezy.com/system/resources/previews/005/140/371/non_2x/smart-woman-doctor-is-holding-stethoscope-free-photo.jpg"
+        },
+        {
+          "id": 5,
+          "name": "Ralph Edward",
+          "speciality": "Dentist Specialist",
+          "rating": 4.8,
+          "profileImage": "https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1)-p-2000.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Olivia Hayes  ",
+          "speciality": "Surgery Specialist",
+          "rating": 4.6,
+          "profileImage": "https://static.vecteezy.com/system/resources/previews/023/570/077/large_2x/portrait-of-girl-doctor-illustration-ai-generative-free-photo.jpg"
+        },
+        {
+          "id": 7,
+          "name": "Annette Black",
+          "speciality": "Urology Specialist",
+          "rating": 4.5,
+          "profileImage": "https://img.freepik.com/premium-photo/smiling-doctor-his-practice_13339-193671.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Emily Davis       ",
+          "speciality": "Neurology Specialist",
+          "rating": 4.8,
+          "profileImage": "https://static.vecteezy.com/system/resources/previews/005/140/371/non_2x/smart-woman-doctor-is-holding-stethoscope-free-photo.jpg"
+        }
+      ]
+    },
+    "categories": [
+      {
+        "id": 1,
+        "title": "Hospital",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2853/2853009.png"
+      },
+      {
+        "id": 2,
+        "title": "Consultant",
+        "icon": "https://thumbs.dreamstime.com/b/businessman-consultant-manager-icon-rounded-orange-vector-design-using-print-media-web-projects-any-type-commercial-256008130.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Advice",
+        "icon": "https://st2.depositphotos.com/5266903/9711/v/950/depositphotos_97116284-stock-illustration-pharmacy-motorbike-shipment-rounded-icon.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Pharmacy",
+        "icon": "https://previews.123rf.com/images/butenkow/butenkow1510/butenkow151000050/46534583-round-vector-logo-with-pills-to-pharmacies.jpg"
+      }
+    ],
+    "upcomingSchedules": [
+      {
+        "id": 101,
+        "doctorName": "Dr. Lailas Russell",
+        "speciality": "Dermatologist Specialist",
+        "date": "2025-09-20",
+        "time": "12:30 PM - 10:30 PM",
+        "profileImage": "https://img.freepik.com/premium-photo/smiling-doctor-his-practice_13339-193671.jpg"
+      },
+      {
+        "id": 102,
+        "doctorName": "Dr. Cries Jacks",
+        "speciality": "Cardiologist Specialist",
+        "date": "2025-09-22",
+        "time": "09:00 AM - 11:00 AM",
+        "profileImage": "https://static.vecteezy.com/system/resources/previews/023/570/077/large_2x/portrait-of-girl-doctor-illustration-ai-generative-free-photo.jpg"
+      },
+      {
+        "id": 103,
+        "doctorName": "Dr. Sarah Connor",
+        "speciality": "Neurologist Specialist",
+        "date": "2025-09-25",
+        "time": "03:00 PM - 05:00 PM",
+        "profileImage": "https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1)-p-2000.jpg"
+      },
+      {
+        "id": 104,
+        "doctorName": "Dr. Emily Carter",
+        "speciality": "Pediatrician Specialist",
+        "date": "2025-09-28",
+        "time": "10:00 AM - 02:00 PM",
+        "profileImage": "https://static.vecteezy.com/system/resources/previews/005/140/371/non_2x/smart-woman-doctor-is-holding-stethoscope-free-photo.jpg"
+      }
+    ]
+  }
+}
+
