@@ -55,7 +55,7 @@
           "profileImage": "https://img.freepik.com/premium-photo/smiling-doctor-his-practice_13339-193671.jpg"
         },
         {
-          "id": 3,
+          "id": 4,
           "name": "Emily Davis       ",
           "speciality": "Neurology Specialist",
           "rating": 4.8,
@@ -118,7 +118,7 @@
         "id": 101,
         "doctorName": "Dr. Lailas Russell",
         "speciality": "Dermatologist Specialist",
-        "date": "2025-09-20",
+        "date": "20 September",
         "time": "12:30 PM - 10:30 PM",
         "profileImage": "https://img.freepik.com/premium-photo/smiling-doctor-his-practice_13339-193671.jpg"
       },
@@ -126,7 +126,7 @@
         "id": 102,
         "doctorName": "Dr. Cries Jacks",
         "speciality": "Cardiologist Specialist",
-        "date": "2025-09-22",
+        "date": "22 September",
         "time": "09:00 AM - 11:00 AM",
         "profileImage": "https://static.vecteezy.com/system/resources/previews/023/570/077/large_2x/portrait-of-girl-doctor-illustration-ai-generative-free-photo.jpg"
       },
@@ -134,7 +134,7 @@
         "id": 103,
         "doctorName": "Dr. Sarah Connor",
         "speciality": "Neurologist Specialist",
-        "date": "2025-09-25",
+        "date": "25 September",
         "time": "03:00 PM - 05:00 PM",
         "profileImage": "https://cdn.prod.website-files.com/62d4f06f9c1357a606c3b7ef/65ddf3cdf19abaf5688af2f8_shutterstock_1933145801%20(1)-p-2000.jpg"
       },
@@ -142,11 +142,10 @@
         "id": 104,
         "doctorName": "Dr. Emily Carter",
         "speciality": "Pediatrician Specialist",
-        "date": "2025-09-28",
+        "date": "20 September",
         "time": "10:00 AM - 02:00 PM",
         "profileImage": "https://static.vecteezy.com/system/resources/previews/005/140/371/non_2x/smart-woman-doctor-is-holding-stethoscope-free-photo.jpg"
       }
     ]
   }
 }
-

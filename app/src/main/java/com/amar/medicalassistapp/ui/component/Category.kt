@@ -32,7 +32,10 @@ fun CategoryRow(categoryList: List<Category>) {
                .padding(16.dp),
           horizontalArrangement = Arrangement.spacedBy(12.dp)
      ) {
-          items(categoryList) {
+          items(
+               items = categoryList,
+               key = { it.id }
+          ) {
                Category(
                     name = it.title,
                     imageUrl = it.icon

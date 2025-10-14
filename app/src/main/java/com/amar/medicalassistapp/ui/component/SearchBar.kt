@@ -28,6 +28,10 @@ fun SearchBar(
      TextField(
           value = query,
           onValueChange = onQueryChange,
+          modifier = Modifier
+               .fillMaxWidth()
+               .padding(16.dp)
+               .height(56.dp),
           placeholder = {
                Text(
                     text = "Search by doctor's name",
@@ -42,6 +46,7 @@ fun SearchBar(
                     tint = Color.Gray
                )
           },
+//          shape = MaterialTheme.shapes.extraLarge,
           shape = RoundedCornerShape(50),
           colors = TextFieldDefaults.colors(
                focusedContainerColor = Color.White,
@@ -52,11 +57,7 @@ fun SearchBar(
                unfocusedIndicatorColor = Color.Transparent,
                disabledIndicatorColor = Color.Transparent,
                errorIndicatorColor = Color.Transparent
-          ),
-          modifier = Modifier
-               .fillMaxWidth()
-               .padding(16.dp)
-               .height(56.dp)
+          )
      )
 }
 
@@ -64,7 +65,6 @@ fun SearchBar(
 @Composable
 private fun SearchBarPreview() {
      var searchQuery by remember { mutableStateOf("") }
-
      SearchBar(
           query = searchQuery,
           onQueryChange = { searchQuery = it }

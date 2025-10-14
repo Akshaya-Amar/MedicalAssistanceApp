@@ -21,10 +21,13 @@ import com.amar.medicalassistapp.R
 
 @Composable
 fun TopBar() {
+     val placeholderProfile = painterResource(R.drawable.baseline_account_circle_24)
+     val placeholderBell = painterResource(R.drawable.outline_notifications_24)
+
      Row(
           modifier = Modifier
                .fillMaxWidth()
-               .padding(top = 32.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
+               .padding(top = 24.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
           horizontalArrangement = Arrangement.SpaceBetween,
           verticalAlignment = Alignment.CenterVertically
      ) {
@@ -32,24 +35,23 @@ fun TopBar() {
                model = "https://t3.ftcdn.net/jpg/06/99/46/60/240_F_699466075_DaPTBNlNQTOwwjkOiFEoOvzDV0ByXR9E.jpg",
                contentDescription = "Profile",
                modifier = Modifier
-                    .size(50.dp)
+                    .size(48.dp)
                     .clip(CircleShape),
                contentScale = ContentScale.Crop,
-               placeholder = painterResource(R.drawable.baseline_account_circle_24),
-               error = painterResource(R.drawable.baseline_account_circle_24),
+               placeholder = placeholderProfile,
+               error = placeholderProfile
           )
 
           AsyncImage(
                model = "https://static.vecteezy.com/system/resources/previews/029/881/131/non_2x/notification-bell-icon-free-png.png",
                contentDescription = "Notification Bell",
                modifier = Modifier
-                    .size(50.dp)
+                    .size(48.dp)
                     .clip(CircleShape)
                     .background(Color.White)
-//                    .clickable { onClick() }
                     .padding(16.dp),
-               placeholder = painterResource(R.drawable.outline_notifications_24),
-               error = painterResource(R.drawable.outline_notifications_24),
+               placeholder = placeholderBell,
+               error = placeholderBell
           )
      }
 }

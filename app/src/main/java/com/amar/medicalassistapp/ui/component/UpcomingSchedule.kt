@@ -1,6 +1,7 @@
 package com.amar.medicalassistapp.ui.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,8 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -20,7 +19,6 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,34 +37,17 @@ import com.amar.medicalassistapp.R
 import com.amar.medicalassistapp.ui.model.UpcomingSchedule
 
 @Composable
-fun UpcomingScheduleColumn(upcomingSchedules: List<UpcomingSchedule>) {
-     LazyColumn {
-          items(upcomingSchedules) { doctor ->
-               UpcomingScheduleItem(
-                    doctorName = doctor.doctorName,
-                    specialization = doctor.speciality,
-                    imageUrl = doctor.profileImage,
-                    schedule = doctor.time,
-                    onCallClick = {},
-                    onChatClick = {}
-               )
-          }
-     }
-}
-
-@Composable
 fun UpcomingScheduleItem(
-     doctorName: String,
-     specialization: String,
-     imageUrl: String,
-     schedule: String,
+     upcomingSchedule: UpcomingSchedule,
      onChatClick: () -> Unit,
      onCallClick: () -> Unit
 ) {
+     val placeholderPainter = painterResource(R.drawable.baseline_account_circle_24)
+
      Card(
           modifier = Modifier
                .fillMaxWidth()
-               .padding(12.dp),
+               .padding(horizontal = 16.dp, vertical = 12.dp),
           colors = CardDefaults.cardColors(containerColor = Color.White),
           elevation = CardDefaults.cardElevation(2.dp),
           shape = RoundedCornerShape(16.dp),
@@ -81,27 +62,27 @@ fun UpcomingScheduleItem(
                     verticalAlignment = Alignment.CenterVertically
                ) {
                     AsyncImage(
-                         model = imageUrl,
+                         model = upcomingSchedule.profileImage,
                          contentDescription = "Doctor Image",
                          modifier = Modifier
                               .size(60.dp)
                               .clip(CircleShape),
                          contentScale = ContentScale.Crop,
-                         placeholder = painterResource(R.drawable.baseline_account_circle_24),
-                         error = painterResource(R.drawable.baseline_account_circle_24),
+                         placeholder = placeholderPainter,
+                         error = placeholderPainter
                     )
 
                     Spacer(modifier = Modifier.width(10.dp))
 
                     Column(modifier = Modifier.weight(1f)) {
                          Text(
-                              text = doctorName,
+                              text = upcomingSchedule.doctorName,
                               fontWeight = FontWeight.Bold,
                               style = MaterialTheme.typography.titleMedium,
                               color = Color.Black
                          )
                          Text(
-                              text = specialization,
+                              text = upcomingSchedule.speciality,
                               style = MaterialTheme.typography.bodySmall,
                               color = Color.Gray
                          )
@@ -115,7 +96,7 @@ fun UpcomingScheduleItem(
                          onClick = onChatClick
                     )
 
-                    Spacer(modifier = Modifier.width(20.dp))
+                    Spacer(modifier = Modifier.width(12.dp))
 
                     ActionIconButton(
                          icon = Icons.Default.Call,
@@ -137,7 +118,7 @@ fun UpcomingScheduleItem(
                     contentAlignment = Alignment.Center
                ) {
                     Text(
-                         text = schedule,
+                         text = "${upcomingSchedule.date} - ${upcomingSchedule.time}",
                          fontWeight = FontWeight.Medium,
                          style = MaterialTheme.typography.bodyMedium,
                          color = Color.Black
@@ -150,11 +131,16 @@ fun UpcomingScheduleItem(
 @Preview(showBackground = true)
 @Composable
 private fun UpcomingSchedulePreview() {
-     UpcomingScheduleItem(
+     val schedule = UpcomingSchedule(
           doctorName = "Dr. Lailas Russell",
-          specialization = "Dermatologist Specialist",
-          imageUrl = "https://via.placeholder.com/150",
-          schedule = "20 September - 12:30 - 10:30 PM",
+          speciality = "Dermatologist Specialist",
+          profileImage = "https://via.placeholder.com/150",
+          date = "20 September",
+          time = "12:30 - 10:30 PM",
+     )
+
+     UpcomingScheduleItem(
+          upcomingSchedule = schedule,
           onChatClick = {},
           onCallClick = {}
      )
@@ -168,16 +154,18 @@ fun ActionIconButton(
      tintColor: Color,
      onClick: () -> Unit
 ) {
-     IconButton(
-          onClick = onClick,
+     Box(
           modifier = Modifier
-               .size(36.dp)
-               .background(backgroundColor, CircleShape)
+               .size(40.dp)
+               .clip(CircleShape)
+               .background(backgroundColor)
+               .clickable { onClick() },
+          contentAlignment = Alignment.Center
      ) {
           Icon(
                imageVector = icon,
                contentDescription = contentDescription,
-               tint = tintColor
+               tint = tintColor,
           )
      }
 }

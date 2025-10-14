@@ -24,6 +24,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,29 +37,31 @@ import coil.compose.AsyncImage
 import com.amar.medicalassistapp.R
 import com.amar.medicalassistapp.ui.model.Specialist
 
+private val doctorColors = listOf(
+     Color(0xFFFFEBF0),
+     Color(0xFFE0F7FA),
+     Color(0xFFFFF3E0),
+     Color(0xFFE1BEE7)
+)
+
 @Composable
 fun DoctorRow(doctorList: List<Specialist>) {
-     val doctorColors = listOf(
-          Color(0xFFFFEBF0),
-          Color(0xFFE0F7FA),
-          Color(0xFFFFF3E0),
-          Color(0xFFE1BEE7)
-     )
-
      LazyRow(
           modifier = Modifier
                .fillMaxWidth()
-               .padding(12.dp),
-          horizontalArrangement = Arrangement.spacedBy(8.dp)
+               .padding(top = 12.dp, bottom = 16.dp, start = 12.dp, end = 12.dp),
+          horizontalArrangement = Arrangement.spacedBy(12.dp)
      ) {
-          itemsIndexed(doctorList) { index, doctor ->
+          itemsIndexed(
+               items = doctorList,
+               key = { _, specialist ->
+                    specialist.id
+               }
+          ) { index, specialist ->
                val bgColor = doctorColors[index % doctorColors.size]
 
                DoctorCard(
-                    name = doctor.name,
-                    specialization = doctor.speciality,
-                    rating = doctor.rating,
-                    imageUrl = doctor.profileImage,
+                    doctor = specialist,
                     backgroundColor = bgColor
                )
           }
@@ -67,33 +70,31 @@ fun DoctorRow(doctorList: List<Specialist>) {
 
 @Composable
 fun DoctorCard(
-     name: String,
-     specialization: String,
-     rating: Double,
-     imageUrl: String,
+     doctor: Specialist,
      backgroundColor: Color
 ) {
+     val placeholderPainter = painterResource(R.drawable.baseline_account_circle_24)
+
      Card(
           modifier = Modifier
                .width(150.dp)
-               .height(160.dp)
-               .padding(start = 4.dp, bottom = 6.dp, top = 4.dp, end = 4.dp),
+               .height(160.dp),
           colors = CardDefaults.cardColors(containerColor = backgroundColor),
           elevation = CardDefaults.cardElevation(2.dp),
           shape = RoundedCornerShape(16.dp),
      ) {
           Box(modifier = Modifier.fillMaxSize()) {
                AsyncImage(
-                    model = imageUrl,
-                    contentDescription = "Doctor",
+                    model = doctor.profileImage,
+                    contentDescription = "Doctor Profile Image",
                     modifier = Modifier
                          .padding(12.dp)
                          .size(60.dp)
                          .clip(CircleShape)
                          .align(Alignment.TopStart),
                     contentScale = ContentScale.Crop,
-                    placeholder = painterResource(R.drawable.baseline_account_circle_24),
-                    error = painterResource(R.drawable.baseline_account_circle_24),
+                    placeholder = placeholderPainter,
+                    error = placeholderPainter
                )
 
                Row(
@@ -117,7 +118,7 @@ fun DoctorCard(
                     Spacer(Modifier.width(2.dp))
 
                     Text(
-                         text = rating.toString(),
+                         text = doctor.rating.toString(),
                          style = MaterialTheme.typography.titleSmall
                     )
                }
@@ -129,13 +130,13 @@ fun DoctorCard(
                     horizontalAlignment = Alignment.CenterHorizontally
                ) {
                     Text(
-                         text = name,
+                         text = doctor.name,
                          fontWeight = FontWeight.Bold,
                          style = MaterialTheme.typography.titleMedium,
                          color = Color.Black
                     )
                     Text(
-                         text = specialization,
+                         text = doctor.speciality,
                          style = MaterialTheme.typography.bodySmall,
                          color = Color.Gray
                     )
