@@ -14,12 +14,12 @@ android {
           }
      }
      namespace = "com.amar.medicalassistapp"
-     compileSdk = 35
+     compileSdk = 36
 
      defaultConfig {
           applicationId = "com.amar.medicalassistapp"
           minSdk = 26
-          targetSdk = 35
+          targetSdk = 36
           versionCode = 1
           versionName = "1.0"
 
@@ -55,13 +55,14 @@ dependencies {
      implementation(libs.androidx.core.ktx)
      implementation(libs.androidx.lifecycle.runtime.ktx)
      implementation(libs.androidx.activity.compose)
-     implementation(platform(libs.androidx.compose.bom))
      implementation(libs.androidx.ui)
      implementation(libs.androidx.ui.graphics)
      implementation(libs.androidx.ui.tooling.preview)
      implementation(libs.androidx.material3)
      implementation(libs.gson)
-     implementation(libs.coil.compose)
+     implementation(libs.coil3.coil.compose)
+     implementation(libs.coil3.network.okhttp)
+     implementation(platform(libs.androidx.compose.bom))
      testImplementation(libs.junit)
      androidTestImplementation(libs.androidx.junit)
      androidTestImplementation(libs.androidx.espresso.core)
